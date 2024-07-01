@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SNOPS: Semantically-aligned NOvel Point Segmentation">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SNOPS: Semantically-aligned Novel Point Segmentation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#129347;</text></svg>">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SNOPS &#129347; </h1>
+            <h2 class="title is-2 publication-title">Novel Class Discovery Meets Foundation Models for 3D Semantic
+              Segmentation </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=djO2pVUAAAAJ" target="_blank">Luigi Riz</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=PID7Z4oAAAAJ" target="_blank">Cristiano Saltori</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=KBZ3zrEAAAAJ" target="_blank">Yiming Wang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=xf1T870AAAAJ" target="_blank">Elisa Ricci</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=BQ7li6AAAAAJ" target="_blank">Fabio Poiesi</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Fondazione Bruno Kessler</span>
+              <span class="author-block"><sup>2</sup>University of Trento</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2312.03782" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/LuigiRiz/SNOPS" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/teaser.png" alt="Novel Class Discovery diagram" />
+        <p></p>
+        <h2 class="subtitle has-text-centered" style="margin-top: 30px;">
+          <b>SNOPS</b> is a Novel Class Discovery (NCD) method that leverages GT label supervision for known <b>base
+            classes</b> and auxiliary semantic supervision from a 3D foundation model for unlabelled <b>novel
+            classes</b> to perform semantic segmentation on 3D point clouds containing both novel and base points.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The task of Novel Class Discovery (NCD) in semantic segmentation entails training a model able to
+              accurately segment unlabelled (novel) classes, relying on the available supervision from annotated (base)
+              classes.
+            </p>
+            <p>
+              Although extensively investigated in 2D image data, the extension of the NCD task to the domain of 3D
+              point clouds represents a pioneering effort, characterized by assumptions and challenges that are not
+              present in the 2D case.
+            </p>
+            <p>
+              This paper represents an advancement in the analysis of point cloud data in four directions.
+              Firstly, it introduces the novel task of NCD for point cloud semantic segmentation.
+              Secondly, it demonstrates that directly transposing the only existing NCD method for 2D image semantic
+              segmentation to 3D data yields suboptimal results.
+              Thirdly, a new NCD approach based on online clustering, uncertainty estimation, and semantic distillation
+              is presented.
+              Lastly, a novel evaluation protocol is proposed to rigorously assess the performance of NCD in point cloud
+              semantic segmentation.
+            </p>
+            <p>
+              Through comprehensive evaluations on the SemanticKITTI, SemanticPOSS, and S3DIS datasets, the paper
+              demonstrates substantial superiority of the proposed method over the considered baselines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Method. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/architecture.png" alt="Architecture of SNOPS" />
+          <div class="content has-text-justified">
+            <p>
+              We employ two specialized UNet-like deep neural networks optimized for 3D data to extract features from
+              input point clouds.
+            </p>
+            <p>
+              The <b>primary network</b> (composed of the backbone \(f_g \) and the heads \( f_n, f_b \), and \( f_s \))
+              is initially untrained, serving as the target for concurrent segmentation of base and novel classes.
+              The <b>secondary network</b> \( f_a \) is auxiliary and pre-trained for task-agnostic 3D scene
+              understanding.
+            </p>
+            <p>
+              For <b>base class</b> points, traditional <b>supervised training</b> is used with human annotations. <br>
+              Training for <b>novel classes</b> pursues two objectives: <b>aligning</b> features with the semantic
+              knowledge of the auxiliary network and applying a <b>self-supervised</b> approach for <b>pseudo-label
+                generation</b>.
+            </p>
+            <p>
+              A <b>class-balanced queue</b> is used to maintain an equal representation of novel classes in processed
+              batches, regardless of their presence in point clouds. <br>
+              <b>Pseudo-label confidences</b> are used to select high-quality points for the queue.
+            </p>
+            <p>
+              The optimization function is a combination of two components: the <b>segmentation loss</b> \(
+              \ell_\text{S} \) and the <b>alignment loss</b> \( \ell_\text{A} \). The segmentation loss involves
+              ground-truth labels with pseudo-labels. The alignment loss considers the alignment of features with the
+              semantic knowledge obtained from the auxiliary network.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Method. -->
+
+  <hr>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Semantic segmentation results</h2>
+          <img src="./static/images/qualitative.png" alt="Qualitative" />
+          <figcaption>Qualitative comparisons on different outdoor and indoor datasets. We report results on novel classes. <br>
+            <i>Top:</i> SemanticPOSS [<a href="https://doi.org/10.1109/IV47402.2020.9304596" target="_blank">1</a>],
+            <i>Centre:</i> SemanticKITTI [<a href="https://doi.org/10.1109/ICCV.2019.00939" target="_blank">2</a>],
+            <i>Bottom:</i> S3DIS [<a href="https://doi.org/10.1109/CVPR.2016.170" target="_blank">3</a>]. <br>
+            <i>First column:</i> EUMS\(^\dagger \) [<a href="https://doi.org/10.1109/CVPR52688.2022.00430" target="_blank">4</a>],
+            <i>Second column:</i> NOPS [<a href="https://doi.org/10.1109/CVPR52729.2023.00906" target="_blank">5</a>],
+            <i>Third column:</i> SNOPS <i>(Ours)</i>,
+            <i>Fourth column:</i> ground truth.
+          </figcaption>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+
+      <pre><code>@article{riz2023snops,
+        title={Novel Class Discovery for 3D Point Cloud Semantic Segmentation},
+        author={Riz, Luigi and Saltori, Cristiano and Wang, Yiming and Ricci, Elisa and Poiesi, Fabio},
+        journal={}
+        year={2023}
+      }</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+              The webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
